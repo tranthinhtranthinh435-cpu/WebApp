@@ -1,0 +1,676 @@
+﻿@model IEnumerable<WebApp.Models.ProductViewModel>
+@{
+    Layout = null; // Bỏ Layout chung để tự do tùy biến 100%
+    ViewData["Title"] = "Trần Thịnh - Đại Lý Phân Phối Dầu Nhớt Shell Chính Hãng";
+
+    // Danh sách đầy đủ các dòng sản phẩm Dầu Nhớt Shell
+    var products = Model ?? new List<WebApp.Models.ProductViewModel>
+    {
+        // 1. ĐỘNG CƠ DIESEL (Rimula)
+        new() {
+            Id = 1,
+            Name = "Shell Rimula R4 X 15W-40",
+            Category = "diesel",
+            CategoryName = "Shell Rimula - Động cơ Diesel",
+            Summary = "Dầu nhớt động cơ Diesel tải nặng bảo vệ 3 tác động.",
+            Description = "Bảo vệ vượt trội chống mài mòn, chống cặn bẩn và chống ăn mòn hóa học. Thích hợp cho xe tải, xe buýt, đầu kéo và máy công trình.",
+            Viscosity = "15W-40 / API CI-4",
+            Packaging = "Xô 18L, Phuy 209L",
+            ImageUrl = "https://hongduong.com.vn/wp-content/uploads/2020/09/Shell-Rimula-R4-X-15W-40.jpg",
+            Badge = "Bán Chạy"
+        },
+        new() {
+            Id = 2,
+            Name = "Shell Rimula R2 Extra 20W-50",
+            Category = "diesel",
+            CategoryName = "Shell Rimula - Động cơ Diesel",
+            Summary = "Dầu nhớt động cơ chịu tải bền bỉ và kiểm soát cặn.",
+            Description = "Chứa hệ phụ gia đã qua thử nghiệm giúp giữ động cơ sạch sẽ, chống mài mòn và duy trì độ nhớt ổn định trong điều kiện vận hành nặng.",
+            Viscosity = "20W-50 / API CF-4",
+            Packaging = "Xô 18L, Phuy 209L",
+            ImageUrl = "https://hongduong.com.vn/wp-content/uploads/2020/09/Shell-Rimula-R2-Extra-20W-50.jpg",
+            Badge = "Tải Nặng"
+        },
+        new() {
+            Id = 3,
+            Name = "Shell Rimula R6 LM 10W-40",
+            Category = "diesel",
+            CategoryName = "Shell Rimula - Động cơ Diesel",
+            Summary = "Dầu nhớt động cơ tổng hợp cao cấp kéo dài chu kỳ thay dầu.",
+            Description = "Công nghệ Low-SAPs bảo vệ bộ lọc hạt Diesel (DPF), tiết kiệm nhiên liệu tối đa và tăng tuổi thọ động cơ thế hệ mới Euro 5, 6.",
+            Viscosity = "10W-40 / API CJ-4",
+            Packaging = "Xô 18L, Phuy 209L",
+            ImageUrl = "https://placehold.co/300x300/dd1d21/ffffff?text=Shell+Rimula+R6",
+            Badge = "Cao Cấp"
+        },
+
+        // 2. DẦU THỦY LỰC (Tellus)
+        new() {
+            Id = 4,
+            Name = "Shell Tellus S2 MX 68",
+            Category = "hydraulic",
+            CategoryName = "Shell Tellus - Dầu Thủy Lực",
+            Summary = "Dầu thủy lực chất lượng cao, chống mài mòn cực tốt.",
+            Description = "Tách nước vượt trội, chống tạo bọt và bảo vệ hệ thống thủy lực công nghiệp, máy ép, máy xúc hoạt động liên tục.",
+            Viscosity = "ISO VG 68",
+            Packaging = "Xô 18L, Phuy 209L",
+            ImageUrl = "https://hongduong.com.vn/wp-content/uploads/2020/09/Shell-Tellus-S2-MX-68.jpg",
+            Badge = "Thuỷ Lực"
+        },
+        new() {
+            Id = 5,
+            Name = "Shell Tellus S2 MX 46",
+            Category = "hydraulic",
+            CategoryName = "Shell Tellus - Dầu Thủy Lực",
+            Summary = "Dầu thủy lực cao cấp cho hệ thống truyền động thủy lực.",
+            Description = "Giúp kéo dài chu kỳ bảo dưỡng, khả năng lọc tuyệt vời ngay cả khi bị nhiễm nước nhẹ.",
+            Viscosity = "ISO VG 46",
+            Packaging = "Xô 18L, Phuy 209L",
+            ImageUrl = "https://hongduong.com.vn/wp-content/uploads/2020/09/Shell-Tellus-S2-MX-46.jpg",
+            Badge = "Thuỷ Lực"
+        },
+
+        // 3. DẦU CẦU & HỘP SỐ (Spirax)
+        new() {
+            Id = 6,
+            Name = "Shell Spirax S2 A 85W-140",
+            Category = "gear",
+            CategoryName = "Shell Spirax - Dầu Cầu & Hộp Số",
+            Summary = "Dầu truyền động chịu áp lực cực trị API GL-5.",
+            Description = "Chuyên dụng cho cầu xe tải, vi sai chịu tải nặng, bánh răng hypoid hoạt động ở tốc độ cao/chịu tải va đập.",
+            Viscosity = "85W-140 / API GL-5",
+            Packaging = "Xô 18L, Phuy 209L",
+            ImageUrl = "https://hongduong.com.vn/wp-content/uploads/2020/09/Shell-Spirax-S2-A-85W-140.jpg",
+            Badge = "Dầu Cầu"
+        },
+        new() {
+            Id = 7,
+            Name = "Shell Spirax S2 A 80W-90",
+            Category = "gear",
+            CategoryName = "Shell Spirax - Dầu Cầu & Hộp Số",
+            Summary = "Dầu cầu và hộp số số tay chất lượng cao.",
+            Description = "Chống mài mòn, chống tróc bề mặt bánh răng, êm ái khi sang số và tăng độ bền bánh răng.",
+            Viscosity = "80W-90 / API GL-5",
+            Packaging = "Xô 18L, Phuy 209L",
+            ImageUrl = "https://hongduong.com.vn/wp-content/uploads/2020/09/Shell-Spirax-S2-A-80W-90.jpg",
+            Badge = "Dầu Cầu"
+        },
+
+        // 4. Ô TÔ & XE MÁY (Helix & Advance)
+        new() {
+            Id = 8,
+            Name = "Shell Helix Ultra 5W-40",
+            Category = "passenger",
+            CategoryName = "Shell Helix - Dầu Động Cơ Ô Tô",
+            Summary = "Dầu động cơ tổng hợp toàn phần công nghệ PurePlus.",
+            Description = "Làm từ khí tự nhiên, bảo vệ động cơ tối đa chống cặn bẩn, giúp động cơ đạt hiệu suất như mới.",
+            Viscosity = "5W-40 / API SP",
+            Packaging = "Can 4L, Can 1L",
+            ImageUrl = "https://placehold.co/300x300/dd1d21/ffffff?text=Shell+Helix+Ultra",
+            Badge = "Tổng Hợp"
+        },
+        new() {
+            Id = 9,
+            Name = "Shell Helix HX8 5W-30",
+            Category = "passenger",
+            CategoryName = "Shell Helix - Dầu Động Cơ Ô Tô",
+            Summary = "Dầu nhớt tổng hợp tiết kiệm nhiên liệu cho xe hơi.",
+            Description = "Chống ăn mòn, kéo dài tuổi thọ động cơ ô tô máy xăng và máy dầu hiện đại.",
+            Viscosity = "5W-30 / API SP",
+            Packaging = "Can 4L",
+            ImageUrl = "https://placehold.co/300x300/dd1d21/ffffff?text=Shell+Helix+HX8",
+            Badge = "Ô Tô"
+        },
+
+        // 5. DẦU CÔNG NGHIỆP & MÁY NÉN KHÍ (Omala & Corena)
+        new() {
+            Id = 10,
+            Name = "Shell Omala S2 G 220",
+            Category = "industry",
+            CategoryName = "Shell Omala - Dầu Bánh Răng Công Nghiệp",
+            Summary = "Dầu bánh răng công nghiệp chịu cực áp tốt.",
+            Description = "Chống tải va đập cực tốt, bảo vệ bánh răng kín công nghiệp khỏi va đập và mài mòn.",
+            Viscosity = "ISO VG 220",
+            Packaging = "Phuy 209L",
+            ImageUrl = "https://placehold.co/300x300/dd1d21/ffffff?text=Shell+Omala+220",
+            Badge = "Công Nghiệp"
+        },
+        new() {
+            Id = 11,
+            Name = "Shell Corena S3 R 46",
+            Category = "industry",
+            CategoryName = "Shell Corena - Dầu Máy Nén Khí",
+            Summary = "Dầu máy nén khí trục vít chất lượng cao.",
+            Description = "Khả năng chống phân hủy nhiệt và chống tạo cặn tuyệt hảo, hoạt động ổn định tới 4000 giờ.",
+            Viscosity = "ISO VG 46",
+            Packaging = "Xô 20L, Phuy 209L",
+            ImageUrl = "https://placehold.co/300x300/dd1d21/ffffff?text=Shell+Corena+46",
+            Badge = "Nén Khí"
+        }
+    };
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+
+    <!-- Framework CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+    <style>
+            :root {
+                --shell-yellow: #fbbf24;
+                --shell-red: #dd1d21;
+                --brand-dark: #0f172a;
+                --zalo-color: #0088FF;
+            }
+
+            body {
+                font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+                background-color: #f8fafc;
+                color: #334155;
+                overflow-x: hidden;
+            }
+
+            /* Top Bar */
+            .top-bar {
+                background-color: var(--brand-dark);
+                color: #cbd5e1;
+                font-size: 0.85rem;
+                padding: 8px 0;
+                border-bottom: 3px solid var(--shell-red);
+            }
+
+                .top-bar a {
+                    color: var(--shell-yellow);
+                    text-decoration: none;
+                    font-weight: 600;
+                }
+
+            /* Custom Sticky Navbar */
+            .navbar-custom {
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+            }
+
+            .nav-link {
+                font-weight: 700;
+                text-transform: uppercase;
+                font-size: 0.85rem;
+                color: var(--brand-dark) !important;
+                padding: 8px 16px !important;
+                transition: color 0.3s;
+            }
+
+                .nav-link:hover, .nav-link.active {
+                    color: var(--shell-red) !important;
+                }
+
+            /* Hero Banner Mang Phong Cách Shell */
+            .hero-section {
+                background: linear-gradient(135deg, rgba(15, 23, 42, 0.92), rgba(221, 29, 33, 0.88)), url('https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat fixed;
+                color: #fff;
+                padding: 90px 0 80px 0;
+                position: relative;
+            }
+
+            .hero-title {
+                font-size: clamp(2rem, 5vw, 3.2rem);
+                font-weight: 900;
+                text-transform: uppercase;
+                letter-spacing: -0.5px;
+            }
+
+                .hero-title span {
+                    color: var(--shell-yellow);
+                    text-shadow: 0 0 15px rgba(251, 191, 36, 0.4);
+                }
+
+            .brand-pill {
+                background: rgba(255,255,255,0.15);
+                backdrop-filter: blur(5px);
+                border: 1px solid rgba(255,255,255,0.25);
+                padding: 6px 16px;
+                border-radius: 50px;
+                font-size: 0.85rem;
+                font-weight: 600;
+                display: inline-block;
+            }
+
+            /* Filter Buttons Theo Dòng Sản Phẩm Shell */
+            .filter-btn {
+                border: 1px solid #e2e8f0;
+                background: #fff;
+                color: var(--brand-dark);
+                padding: 8px 20px;
+                border-radius: 50px;
+                font-weight: 700;
+                font-size: 0.85rem;
+                margin: 4px;
+                box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+                transition: all 0.3s ease;
+            }
+
+                .filter-btn.active, .filter-btn:hover {
+                    background: var(--shell-red);
+                    color: #fff;
+                    border-color: var(--shell-red);
+                    box-shadow: 0 4px 12px rgba(221, 29, 33, 0.3);
+                    transform: translateY(-2px);
+                }
+
+            /* Thẻ Sản Phẩm 3D Hover Effect */
+            .product-card {
+                background: #fff;
+                border-radius: 16px;
+                overflow: hidden;
+                border: 1px solid #f1f5f9;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+                transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+
+                .product-card:hover {
+                    transform: translateY(-8px);
+                    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+                    border-color: #cbd5e1;
+                }
+
+            .product-img-wrapper {
+                position: relative;
+                background: radial-gradient(circle, #ffffff 0%, #f8fafc 100%);
+                padding: 24px 16px;
+                text-align: center;
+            }
+
+                .product-img-wrapper img {
+                    max-height: 175px;
+                    object-fit: contain;
+                    width: 100%;
+                    transition: transform 0.4s ease;
+                }
+
+            .product-card:hover .product-img-wrapper img {
+                transform: scale(1.08);
+            }
+
+            .product-badge {
+                position: absolute;
+                top: 12px;
+                left: 12px;
+                background: var(--shell-red);
+                color: #fff;
+                font-size: 0.7rem;
+                font-weight: 800;
+                padding: 4px 10px;
+                border-radius: 20px;
+                text-transform: uppercase;
+            }
+
+            .product-content {
+                padding: 20px;
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            .product-title {
+                font-size: 1.05rem;
+                font-weight: 700;
+                color: var(--brand-dark);
+                text-decoration: none;
+                line-height: 1.3;
+            }
+
+            .btn-detail {
+                background-color: #f1f5f9;
+                color: var(--brand-dark);
+                font-weight: 700;
+                border: none;
+                border-radius: 8px;
+                padding: 10px;
+                transition: all 0.3s ease;
+            }
+
+                .btn-detail:hover {
+                    background-color: var(--shell-red);
+                    color: #fff;
+                }
+
+            /* Nút Liên Hệ Nổi (Zalo & Hotline Pulse Effect) */
+            .floating-contact {
+                position: fixed;
+                bottom: 25px;
+                right: 25px;
+                z-index: 9999;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .btn-float {
+                width: 55px;
+                height: 55px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                font-size: 1.4rem;
+                text-decoration: none;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+                position: relative;
+                transition: transform 0.3s ease;
+            }
+
+                .btn-float:hover {
+                    transform: scale(1.1);
+                    color: #fff;
+                }
+
+            .btn-float-zalo {
+                background-color: var(--zalo-color);
+                font-weight: 900;
+                font-size: 0.9rem;
+            }
+
+            .btn-float-phone {
+                background-color: var(--shell-red);
+                animation: pulse-red 2s infinite;
+            }
+
+            @@keyframes pulse-red {
+                0% {
+                    box-shadow: 0 0 0 0 rgba(221, 29, 33, 0.7);
+                }
+
+                70% {
+                    box-shadow: 0 0 0 15px rgba(221, 29, 33, 0);
+                }
+
+                100% {
+                    box-shadow: 0 0 0 0 rgba(221, 29, 33, 0);
+                }
+            }
+
+            /* CTA Bar */
+            .cta-banner {
+                background: linear-gradient(90deg, #1e293b 0%, #0f172a 100%);
+                color: #fff;
+                padding: 40px 0;
+                border-top: 4px solid var(--shell-yellow);
+            }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container d-flex justify-content-between align-items-center flex-wrap gap-2">
+            <div>
+                <i class="fa-solid fa-certificate text-warning me-1"></i> Đại Lý Phân Phối Shell Chính Hãng: <strong>TRẦN THỊNH</strong>
+            </div>
+            <div>
+                <span class="me-3"><i class="fa-solid fa-phone me-1"></i> <a href="tel:0979666915">0979 666 915</a></span>
+                <span><i class="fa-solid fa-envelope me-1"></i> <a href="mailto:trthinhckdbk@gmail.com">trthinhckdbk@gmail.com</a></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+                <i class="fa-solid fa-oil-well text-danger fs-3"></i>
+                <span class="fw-bold fs-5 text-dark">TRẦN THỊNH - SHELL LUBRICANTS</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Trang Chủ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#categories">Dòng Sản Phẩm</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#products">Danh Mục Dầu Nhớt</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Liên Hệ</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section Shell chuyên nghiệp -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8" data-aos="fade-right">
+                    <div class="d-flex gap-2 mb-3 flex-wrap">
+                        <span class="brand-pill"><i class="fa-solid fa-shield-halved text-warning me-1"></i> Shell Rimula</span>
+                        <span class="brand-pill"><i class="fa-solid fa-shield-halved text-warning me-1"></i> Shell Tellus</span>
+                        <span class="brand-pill"><i class="fa-solid fa-shield-halved text-warning me-1"></i> Shell Spirax</span>
+                        <span class="brand-pill"><i class="fa-solid fa-shield-halved text-warning me-1"></i> Shell Helix</span>
+                    </div>
+                    <h1 class="hero-title mb-3">Chuyên Dầu Nhớt <span>Shell Chính Hãng</span></h1>
+                    <p class="lead mb-4 text-light opacity-90 fs-6">Phân phối giải pháp bôi trơn Shell toàn diện: Động cơ Diesel tải nặng, Dầu thủy lực công nghiệp, Dầu cầu hộp số, Máy nén khí. Đầy đủ CO/CQ, cam kết chất lượng tuyệt đối.</p>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="https://zalo.me/0979666915" target="_blank" class="btn btn-primary px-4 py-2 fw-bold text-uppercase" style="background-color: var(--zalo-color); border:none;">
+                            <i class="fa-solid fa-comment-dots me-2"></i>Báo Giá Zalo Ngay
+                        </a>
+                        <a href="tel:0979666915" class="btn btn-danger px-4 py-2 fw-bold text-uppercase">
+                            <i class="fa-solid fa-phone me-2"></i>0979 666 915
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Giới thiệu nhanh Shell -->
+    <section id="categories" class="py-4 bg-white border-bottom">
+        <div class="container">
+            <div class="row text-center g-3">
+                <div class="col-6 col-md-3">
+                    <div class="p-2">
+                        <i class="fa-solid fa-truck-moving fs-3 text-danger mb-1"></i>
+                        <h6 class="fw-bold mb-0 text-dark">Shell Rimula</h6>
+                        <small class="text-muted">Động cơ Diesel</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="p-2">
+                        <i class="fa-solid fa-gears fs-3 text-danger mb-1"></i>
+                        <h6 class="fw-bold mb-0 text-dark">Shell Tellus</h6>
+                        <small class="text-muted">Dầu Thủy Lực</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="p-2">
+                        <i class="fa-solid fa-diagram-project fs-3 text-danger mb-1"></i>
+                        <h6 class="fw-bold mb-0 text-dark">Shell Spirax</h6>
+                        <small class="text-muted">Dầu Cầu & Hộp Số</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="p-2">
+                        <i class="fa-solid fa-car fs-3 text-danger mb-1"></i>
+                        <h6 class="fw-bold mb-0 text-dark">Shell Helix</h6>
+                        <small class="text-muted">Động Cơ Ô Tô</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Grid Section -->
+    <section id="products" class="py-5">
+        <div class="container">
+            <div class="text-center mb-4" data-aos="fade-up">
+                <span class="text-danger fw-bold text-uppercase small">Sản Phẩm Shell</span>
+                <h2 class="fw-bold text-uppercase h3">Tất Cả Sản Phẩm Dầu Nhớt Shell</h2>
+                <div class="mx-auto" style="width: 50px; height: 3px; background-color: var(--shell-yellow);"></div>
+            </div>
+
+            <!-- Filter Controls Theo Chủng Loại Shell -->
+            <div class="d-flex justify-content-center flex-wrap mb-4" data-aos="fade-up">
+                <button type="button" class="filter-btn active" data-filter="all">Tất Cả</button>
+                <button type="button" class="filter-btn" data-filter="diesel">Động Cơ Diesel</button>
+                <button type="button" class="filter-btn" data-filter="hydraulic">Thủy Lực (Tellus)</button>
+                <button type="button" class="filter-btn" data-filter="gear">Dầu Cầu (Spirax)</button>
+                <button type="button" class="filter-btn" data-filter="passenger">Xe Ô TÔ (Helix)</button>
+                <button type="button" class="filter-btn" data-filter="industry">Công Nghiệp</button>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="row g-3 g-md-4 product-grid">
+                @foreach (var item in products)
+                {
+                    <div class="col-12 col-sm-6 col-lg-4 product-item" data-category="@item.Category" data-aos="fade-up">
+                        <div class="product-card">
+                            <div class="product-img-wrapper">
+                                <span class="product-badge">@item.Badge</span>
+                                <img src="@item.ImageUrl" alt="@item.Name" />
+                            </div>
+                            <div class="product-content">
+                                <div>
+                                    <a href="javascript:void(0)" class="product-title d-block mb-2"
+                                       onclick="openProductModal('@item.Name', '@item.CategoryName', '@item.Description', '@item.Viscosity', '@item.Packaging')">
+                                        @item.Name
+                                    </a>
+                                    <p class="text-muted small mb-3">@item.Summary</p>
+                                </div>
+                                <button type="button" class="btn btn-detail w-100"
+                                        onclick="openProductModal('@item.Name', '@item.CategoryName', '@item.Description', '@item.Viscosity', '@item.Packaging')">
+                                    <i class="fa-solid fa-circle-info me-1"></i> Xem Chi Tiết Shell
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <section id="contact" class="cta-banner">
+        <div class="container">
+            <div class="row align-items-center g-3">
+                <div class="col-md-8 text-center text-md-start">
+                    <h4 class="fw-bold mb-1 text-uppercase text-warning">Cần Báo Giá Sỉ Phuy / Xô Nhớt Shell?</h4>
+                    <p class="mb-0 text-light opacity-90">Liên hệ ngay đại lý <strong>Trần Thịnh</strong> để có báo giá chiết khấu ưu đãi nhất cho công trình, đội xe.</p>
+                </div>
+                <div class="col-md-4 text-center text-md-end">
+                    <a href="https://zalo.me/0979666915" target="_blank" class="btn btn-warning btn-lg fw-bold px-4">
+                        <i class="fa-solid fa-comments me-2"></i>Nhắn Zalo Ngay
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Contact Buttons (Zalo & Phone) -->
+    <div class="floating-contact">
+        <a href="https://zalo.me/0979666915" target="_blank" class="btn-float btn-float-zalo" title="Chat Zalo">
+            Zalo
+        </a>
+        <a href="tel:0979666915" class="btn-float btn-float-phone" title="Gọi Ngay">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div class="modal fade" id="productModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header bg-dark text-white border-0">
+                    <h5 class="modal-title fw-bold fs-6" id="modalTitle">Tên Sản Phẩm</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <span class="badge bg-danger mb-2" id="modalCategory">Shell Lubricants</span>
+                    <h6 class="fw-bold mt-2 fs-6">Đặc tính kỹ thuật:</h6>
+                    <p id="modalDesc" class="text-muted small"></p>
+                    <hr />
+                    <div class="row g-2">
+                        <div class="col-6">
+                            <span class="fw-bold d-block small">Cấp độ nhớt / API:</span>
+                            <span id="modalViscosity" class="text-danger fw-bold small"></span>
+                        </div>
+                        <div class="col-6">
+                            <span class="fw-bold d-block small">Quy cách đóng gói:</span>
+                            <span id="modalPacking" class="text-dark small"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    <a href="https://zalo.me/0979666915" target="_blank" class="btn btn-sm text-white" style="background-color: var(--zalo-color);">
+                        <i class="fa-solid fa-comment-dots me-1"></i> Hỏi Báo Giá Zalo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Core Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Khởi tạo hiệu ứng cuộn AOS
+                if (typeof AOS !== 'undefined') {
+                    AOS.init({
+                        duration: 700,
+                        once: true
+                    });
+                }
+
+                // Bộ lọc danh mục Shell
+                const filterBtns = document.querySelectorAll('.filter-btn');
+                const productItems = document.querySelectorAll('.product-item');
+
+                filterBtns.forEach(btn => {
+                    btn.addEventListener('click', function () {
+                        filterBtns.forEach(b => b.classList.remove('active'));
+                        this.classList.add('active');
+
+                        const filterValue = this.getAttribute('data-filter');
+
+                        productItems.forEach(item => {
+                            const itemCategory = item.getAttribute('data-category');
+                            if (filterValue === 'all' || itemCategory === filterValue) {
+                                item.style.display = 'block';
+                            } else {
+                                item.style.display = 'none';
+                            }
+                        });
+                    });
+                });
+            });
+
+            // Bật Modal hiển thị thông tin sản phẩm Shell
+            function openProductModal(title, category, desc, viscosity, packing) {
+                document.getElementById('modalTitle').innerText = title;
+                document.getElementById('modalCategory').innerText = category;
+                document.getElementById('modalDesc').innerText = desc;
+                document.getElementById('modalViscosity').innerText = viscosity;
+                document.getElementById('modalPacking').innerText = packing;
+
+                const modalElement = document.getElementById('productModal');
+                const modalInstance = bootstrap.Modal.getOrCreateInstance(modalElement);
+                modalInstance.show();
+            }
+    </script>
+</body>
+</html>
